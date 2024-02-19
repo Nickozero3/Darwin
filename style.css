@@ -1,0 +1,118 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+
+body {
+    background-color: #343a40;
+    height: 100vh;
+    /* Ocupa el 100% del alto del viewport */
+    min-width: 100%;
+    /* Ocupa como mínimo el 100% del ancho */
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+}
+
+/* seccion carousel */
+
+.carousel-inner img {
+    object-fit: contain;
+    height: auto;
+    justify-content: center;
+
+}
+
+.carousel-item {
+    font-size: 1em;
+    font-weight: 400;
+    color: white;
+    text-shadow: -1px -1px 2px #000;
+    -webkit-text-stroke: 1px #000;
+
+}
+
+.carousel-item h5 {
+    font-size: 1.4em;
+    font-weight: 400;
+    color: white;
+}
+
+
+.carousel-item:nth-child(1) .carousel-caption {
+    color: white;
+    font-size: larger;
+    text-shadow: -1px -1px 2px #000;
+    -webkit-text-stroke: 0.5px #000;
+}
+
+.carousel-item:nth-child(2) .carousel-caption {
+    color: white;
+    font-size: larger;
+    text-shadow: -1px -1px 2px #000;
+    -webkit-text-stroke: 0.5px #000;
+}
+
+.carousel-item:nth-child(3) .carousel-caption {
+    color: white;
+    font-size: larger;
+    text-shadow: -1px -1px 2px #000;
+    -webkit-text-stroke: 0.5px #000;
+}
+
+/* seccion cards */
+.card {
+    min-height: 100%;
+}
+
+.card ul {
+    list-style: square;
+}
+
+.card li {
+    padding-top: 15px;
+}
+
+.card img {
+    max-height: 190px;
+}
+
+.card-title {
+    text-align: center;
+    background-color: rgba(136, 136, 136, 0.473);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Ocultar navbar en pantallas de 768px o más */
+@media (min-width: 768px) {
+    .navbar-expand-md {
+        display: none;
+    }
+}
+
+/* Estilo original */
+.resaltado {
+    /* Sombra verde a la derecha y abajo */
+    box-shadow: 5px 5px 8px 6px rgba(14, 211, 56, 0.555),
+        /* sombra verde a la izq y arriba */
+        -5px -5px 8px 6px rgba(14, 211, 56, 0.555);
+    /* Animacion */
+    transition: transform 2s ease-in-out;
+    /* Agregamos una transición suave */
+}
+
+/* Estilo durante la animación */
+.resaltado.animado {
+    /* tamaño en la animacion */
+    transform: scale(1.04);
+}
+
+.scaleReset {
+    box-shadow: 5px 5px 8px 6px rgba(14, 211, 56, 0.555),
+    /* sombra verde a la izq y arriba */
+    -5px -5px 8px 6px rgba(14, 211, 56, 0.555);
+    transform: scale(1);
+      /* restablecer la escala después de la animación */
+    transition: transform 2s ease-in-out, width 2s ease-in-out, height 2s ease-in-out;
+}
