@@ -147,7 +147,7 @@ const tragos = [{
 ]
 // SinALcohol 
 const SinAlcohol = [{
-        Producto: "Gaseosas",
+        Producto: "Gaseosa",
         Precio: 1200,
     },
     {
@@ -161,11 +161,11 @@ const SinAlcohol = [{
 ]
 // VINOS
 const vinos = [{
-        Producto: "Dilema (Blanco-Rosado-Tinto)",
+        Producto: "Dilema <span class='text-info'>(Blanco - Rosado - Tinto)</span>",
         Precio: 4500,
     },
     {
-        Producto: "Santa Julia (Blanco-Tinto)",
+        Producto: "Santa Julia <span class='text-info'>(Blanco - Tinto)</span>",
         Precio: 6500,
     },
 ]
@@ -176,7 +176,7 @@ const cervezas = [{
         Precio: 2400,
     },
     {
-        Producto: "Imperial  (Ipa-Golden-Roja)",
+        Producto: "Imperial  <span class='text-info'>(Golden - Roja - Ipa)</span>",
         Precio: 2400,
     },
 ]
@@ -218,20 +218,20 @@ const shots = [{
 // generar tabla
 function generarTablaMenu(menu, Categoria) {
 
-    let tabla = `<table id="${Categoria}" class="table table-dark table-stripped fs-5-sm text-wrap "  >`;
+    let tabla = `<table id="${Categoria}" class="table table-dark table-stripped fs-5-sm text-wrap"  >`;
 
     tabla += `
         <tr>
-            <th class="bg-white text-black text-capitalize" >${Categoria}</th>
+            <th class="bg-white text-black text-capitalize text-wrap" >${Categoria}</th>
             <th class="bg-white text-black text-wrap" >Precio de:  Efectivo - Transferencia - QR </th>
-            <th class="bg-white text-black" >Precio de Tarjeta </th> 
+            <th class="bg-white text-black text-wrap" >Precio de Tarjeta </th> 
         </tr>
     `;
 
     menu.forEach(item => {
         tabla += `
             <tr>
-                <td class= "w-35 text-start">${item.Producto}</td>  
+                <td class= "w-35 text-start text-wrap">${item.Producto}</td>  
                 <td class= "w-33 text-center"><span class="text-success">$</span>${item.Precio}</td>
                 <td class= "w-33 text-center"><span class="text-success">$</span>${Math.round(item.Precio * 1.10)}</td>
             </tr>
@@ -240,28 +240,28 @@ function generarTablaMenu(menu, Categoria) {
 
     tabla += `</table>`;
 
-    return `<div class="py-3">${tabla}</div>`
+    return `<div class="py-3 text-wrap">${tabla}</div>`
 }
 
 // Al cargar el DOM
 document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.pathname === "/bebidas.html") {
+        // Generar HTML de las tablas
+        const htmlTragos = generarTablaMenu(tragos, "Tragos");
+        const htmlShots = generarTablaMenu(shots, "Shots");
+        const htmlEspumantes = generarTablaMenu(espumantes, "Espumantes");
+        const htmlVinos = generarTablaMenu(vinos, "Vinos");
+        const htmlCervezas = generarTablaMenu(cervezas, "Cervezas");
+        const htmlSinAlcohol = generarTablaMenu(SinAlcohol, "Sin Alcohol");
 
-    // Generar HTML de las tablas
-    const htmlTragos = generarTablaMenu(tragos, "Tragos");
-    const htmlShots = generarTablaMenu(shots, "Shots");
-    const htmlEspumantes = generarTablaMenu(espumantes, "Espumantes");
-    const htmlVinos = generarTablaMenu(vinos, "Vinos");
-    const htmlCervezas = generarTablaMenu(cervezas, "Cervezas");
-    const htmlSinAlcohol = generarTablaMenu(SinAlcohol, "Sin Alcohol");
+        // Obtener divs
+        const divTabla1 = document.querySelector(".divTablaIzq");
+        const divTabla2 = document.querySelector(".divTablaDer");
 
-    // Obtener divs
-    const divTabla1 = document.querySelector(".divTablaIzq");
-    const divTabla2 = document.querySelector(".divTablaDer");
-
-    // Asignar HTML a los divs
-    divTabla1.innerHTML = htmlTragos + htmlShots + htmlEspumantes;
-    divTabla2.innerHTML = htmlVinos + htmlCervezas + htmlSinAlcohol;
-
+        // Asignar HTML a los divs
+        divTabla1.innerHTML = htmlTragos + htmlShots + htmlEspumantes;
+        divTabla2.innerHTML = htmlVinos + htmlCervezas + htmlSinAlcohol;
+    }
 });
 
 function resaltarSeccion(idTabla) {
@@ -305,6 +305,6 @@ function VerificarCodigo() {
 }
 
 
-// Renderizar inicialmente
-renderTable();
-resaltarSeccion();
+// // Renderizar inicialmente
+
+// resaltarSeccion();
