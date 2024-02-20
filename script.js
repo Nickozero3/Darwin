@@ -90,9 +90,6 @@ function renderTable() {
 }
 
 
-
-
-
 // Array de objetos con datos del menú 
 // TRAGOS
 const tragos = [{
@@ -223,8 +220,8 @@ function generarTablaMenu(menu, Categoria) {
     tabla += `
         <tr>
             <th class="bg-white text-black text-capitalize text-wrap" >${Categoria}</th>
-            <th class="bg-white text-black text-wrap" >Precio de:  Efectivo - Transferencia - QR </th>
-            <th class="bg-white text-black text-wrap" >Precio de Tarjeta </th> 
+            <th class="bg-white text-black text-wrap" >Precio de:  Efectivo - Transferencia</th>
+            <th class="bg-white text-black text-wrap" >Precio de Tarjeta  - QR </th> 
         </tr>
     `;
 
