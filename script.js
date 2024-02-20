@@ -245,7 +245,7 @@ function generarTablaMenu(menu, Categoria) {
 
 // Al cargar el DOM
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname === "/bebidas.html") {
+    if (window.location.pathname === "/bebidas.html" || window.location.pathname === "/bebidas")) {
         // Generar HTML de las tablas
         const htmlTragos = generarTablaMenu(tragos, "Tragos");
         const htmlShots = generarTablaMenu(shots, "Shots");
