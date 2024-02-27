@@ -7,7 +7,23 @@ let data = [{
     phone: "+54 3548 554840"
 }];
 
-// Función para agregar una nueva entrada
+// --------------------------------- Logic of table --------------------------------------------------
+
+// LOGICA DE COMPROBACION PARA LISTADO
+function VerificarCodigo() {
+    const codigoCorrecto = "0000"; // Definimos el código correcto
+    const codigoIngresado = prompt("Por favor, ingresa el código de acceso:");
+
+    if (codigoIngresado === codigoCorrecto) {
+        // Si el código ingresado es correcto, permitimos la redirección
+        window.location.href = "lista.html";
+    } else {
+        // Si el código es incorrecto, mostramos un mensaje de error
+        alert("Código incorrecto. No tienes acceso al listado.");
+    }
+}
+
+// Función para agregar una  entrada
 function addEntry() {
 
     if (firstEntry) {
@@ -51,8 +67,7 @@ function addEntry() {
 
 }
 
-
-// Función para eliminar 
+// Función para eliminar una entrada
 function deleteEntry(id) {
 
     // Filtrar array excluyendo el id  
@@ -61,7 +76,6 @@ function deleteEntry(id) {
     // Renderizar tabla actualizada
     renderTable();
 }
-
 
 // Función para renderizar la tabla completa
 function renderTable() {
@@ -89,6 +103,80 @@ function renderTable() {
 
 }
 
+// ----------------------------------------- Logic of drinks --------------------------------------------
+
+// logica de resaltado 
+function resaltarSeccion(idTabla) {
+    // Quitar cualquier resaltado previo
+    document.querySelectorAll(".tabla-resaltar.resaltado.animado").forEach(tabla => {
+        tabla.classList.remove("resaltado", "animado");
+    });
+
+    // Resaltar la tabla correspondiente
+    const tabla = document.getElementById(idTabla);
+    if (tabla) {
+        tabla.classList.add("resaltado", "animado");
+        tabla.classList.add("scaleReset")
+        // Quitar la clase "animado" después de 2 segundos
+        setTimeout(() => {
+            tabla.classList.remove("animado", "resaltado");
+        }, 2000);
+        setTimeout(() => {
+            tabla.classList.remove("scaleReset");
+        }, 4000);
+
+    }
+}
+
+// generar tabla
+function generarTablaMenu(menu, Categoria) {
+
+    let tabla = `<table id="${Categoria}" class="table table-dark table-stripped fs-5-sm text-wrap"  >`;
+
+    tabla += `
+        <tr>
+            <th class="bg-white text-black text-capitalize text-wrap" >${Categoria}</th>
+            <th class="bg-white text-black text-wrap" >Precio de:  Efectivo - Transferencia</th>
+            <th class="bg-white text-black text-wrap" >Precio de Tarjeta  - QR </th> 
+        </tr>
+    `;
+
+    menu.forEach(item => {
+        tabla += `
+            <tr>
+                <td class= "w-35 text-start text-wrap">${item.Producto}</td>  
+                <td class= "w-33 text-center"><span class="text-success">$</span>${item.Precio}</td>
+                <td class= "w-33 text-center"><span class="text-success">$</span>${Math.round(item.Precio * 1.10)}</td>
+            </tr>
+        `;
+    });
+
+    tabla += `</table>`;
+
+    return `<div class="py-3 text-wrap">${tabla}</div>`
+}
+
+// // Renderizar inicialmente
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.pathname === "/bebidas.html" || window.location.pathname === "/bebidas") {
+        // Generar HTML de las tablas
+        const htmlTragos = generarTablaMenu(tragos, "Tragos");
+        const htmlShots = generarTablaMenu(shots, "Shots");
+        const htmlEspumantes = generarTablaMenu(espumantes, "Espumantes");
+        const htmlVinos = generarTablaMenu(vinos, "Vinos");
+        const htmlCervezas = generarTablaMenu(cervezas, "Cervezas");
+        const htmlSinAlcohol = generarTablaMenu(SinAlcohol, "Sin Alcohol");
+
+        // Obtener divs
+        const divTabla1 = document.querySelector(".divTablaIzq");
+        const divTabla2 = document.querySelector(".divTablaDer");
+
+        // Asignar HTML a los divs
+        divTabla1.innerHTML = htmlTragos + htmlShots + htmlEspumantes;
+        divTabla2.innerHTML = htmlVinos + htmlCervezas + htmlSinAlcohol;
+    }
+});
+
 
 // Array de objetos con datos del menú 
 // TRAGOS
@@ -101,10 +189,10 @@ const tragos = [{
     },
     {
         Producto: "Gin Tonic  - Beefeater",
-        Precio: "x",
+        Precio: 12000,
     },
     {
-        Producto: "Vodka Economico",
+        Producto: "Vodka - Economico",
         Precio: 4500,
     },
 
@@ -178,7 +266,7 @@ const cervezas = [{
     },
 ]
 
-// cHAMPAGNES
+// CHAMPAGNES
 const espumantes = [{
         Producto: "Du",
         Precio: 6000,
@@ -212,97 +300,3 @@ const shots = [{
 
     },
 ]
-// generar tabla
-function generarTablaMenu(menu, Categoria) {
-
-    let tabla = `<table id="${Categoria}" class="table table-dark table-stripped fs-5-sm text-wrap"  >`;
-
-    tabla += `
-        <tr>
-            <th class="bg-white text-black text-capitalize text-wrap" >${Categoria}</th>
-            <th class="bg-white text-black text-wrap" >Precio de:  Efectivo - Transferencia</th>
-            <th class="bg-white text-black text-wrap" >Precio de Tarjeta  - QR </th> 
-        </tr>
-    `;
-
-    menu.forEach(item => {
-        tabla += `
-            <tr>
-                <td class= "w-35 text-start text-wrap">${item.Producto}</td>  
-                <td class= "w-33 text-center"><span class="text-success">$</span>${item.Precio}</td>
-                <td class= "w-33 text-center"><span class="text-success">$</span>${Math.round(item.Precio * 1.10)}</td>
-            </tr>
-        `;
-    });
-
-    tabla += `</table>`;
-
-    return `<div class="py-3 text-wrap">${tabla}</div>`
-}
-
-// Al cargar el DOM
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname === "/bebidas.html" || window.location.pathname === "/bebidas") {
-        // Generar HTML de las tablas
-        const htmlTragos = generarTablaMenu(tragos, "Tragos");
-        const htmlShots = generarTablaMenu(shots, "Shots");
-        const htmlEspumantes = generarTablaMenu(espumantes, "Espumantes");
-        const htmlVinos = generarTablaMenu(vinos, "Vinos");
-        const htmlCervezas = generarTablaMenu(cervezas, "Cervezas");
-        const htmlSinAlcohol = generarTablaMenu(SinAlcohol, "Sin Alcohol");
-
-        // Obtener divs
-        const divTabla1 = document.querySelector(".divTablaIzq");
-        const divTabla2 = document.querySelector(".divTablaDer");
-
-        // Asignar HTML a los divs
-        divTabla1.innerHTML = htmlTragos + htmlShots + htmlEspumantes;
-        divTabla2.innerHTML = htmlVinos + htmlCervezas + htmlSinAlcohol;
-    }
-});
-
-
-function resaltarSeccion(idTabla) {
-    // Quitar cualquier resaltado previo
-    document.querySelectorAll(".tabla-resaltar.resaltado.animado").forEach(tabla => {
-        tabla.classList.remove("resaltado", "animado");
-    });
-
-    // Resaltar la tabla correspondiente
-    const tabla = document.getElementById(idTabla);
-    if (tabla) {
-        tabla.classList.add("resaltado", "animado");
-        tabla.classList.add("scaleReset")
-        // Quitar la clase "animado" después de 2 segundos
-        setTimeout(() => {
-            tabla.classList.remove("animado", "resaltado");
-        }, 2000);
-        setTimeout(() => {
-            tabla.classList.remove("scaleReset");
-        }, 4000);
-
-    }
-}
-
-
-
-
-
-// LOGICA DE COMPROBACION PARA LISTADO
-function VerificarCodigo() {
-    const codigoCorrecto = "0000"; // Definimos el código correcto
-    const codigoIngresado = prompt("Por favor, ingresa el código de acceso:");
-
-    if (codigoIngresado === codigoCorrecto) {
-        // Si el código ingresado es correcto, permitimos la redirección
-        window.location.href = "lista.html";
-    } else {
-        // Si el código es incorrecto, mostramos un mensaje de error
-        alert("Código incorrecto. No tienes acceso al listado.");
-    }
-}
-
-
-// // Renderizar inicialmente
-
-// resaltarSeccion();

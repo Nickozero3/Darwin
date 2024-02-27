@@ -32,30 +32,20 @@ footer {
 
 }
 
-.carousel-item h5 {
-    font-size: 1.4em;
-    font-weight: 400;
-    color: white;
-}
-
-
 .carousel-item:nth-child(1) .carousel-caption {
     color: white;
-    font-size: larger;
     text-shadow: -1px -1px 2px #000;
     -webkit-text-stroke: 0.5px #000;
 }
 
 .carousel-item:nth-child(2) .carousel-caption {
     color: white;
-    font-size: larger;
     text-shadow: -1px -1px 2px #000;
     -webkit-text-stroke: 0.5px #000;
 }
 
 .carousel-item:nth-child(3) .carousel-caption {
     color: white;
-    font-size: larger;
     text-shadow: -1px -1px 2px #000;
     -webkit-text-stroke: 0.5px #000;
 }
@@ -74,7 +64,9 @@ footer {
 }
 
 .card img {
-    max-height: 190px;
+    max-height: max-content;
+    max-width: max-content;
+    margin: 0 auto;
 }
 
 .card-title {

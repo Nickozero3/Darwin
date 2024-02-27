@@ -18,7 +18,7 @@
 </head>
 
 <body class="bg-dark">
-    <header id="inicio">
+    <header id="inicio" class="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark bg-black">
             <div class="container-fluid px-5 fs-5">
                 <a class="navbar-brand fs-4" href="index.html">ᴅᴀʀᴡɪɴ</a>
@@ -66,7 +66,7 @@
     </section>
 
     <!-- SECCION DEL CAROUSEL -->
-    <section class="container px-5 bg-dark py-4 img-fluid ">
+    <!-- <section class="container px-5 bg-dark py-4 img-fluid ">
         <div id="carouselCaptions" class="carousel  slide">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="0" class="active"
@@ -76,14 +76,14 @@
                 <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="2"
                     aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-inner ">
+            <div class="carousel-inner">
 
                 <div class="carousel-item active">
                     <img src="tragos/General.jpeg" class="d-block w-100 img-fluid" alt="General">
-                    <div class="carousel-caption  d-md-block">
-                        <strong class="fs-3-sm"></strong>
-                        <h5>Vistazo General</h5>
-                        <p>Presentacion que podes encontrar visitandonos </p>
+                    <div class="carousel-caption  d-md-block ">
+                        <strong>
+                            <h5 class="fs-2">Vistazo General</h5>
+                            <p>Presentacion que podes encontrar visitandonos </p>
                         </strong>
                     </div>
                 </div>
@@ -92,9 +92,9 @@
                     <img src="tragos/depositphotos_183540302-stock-photo-two-glasses-of-mojito-cocktail.webp"
                         class="d-block w-100 img-fluid" alt="Mojito">
                     <div class="carousel-caption d-md-block">
-                        <strong class="fs-3-sm">
-                            <h5 class="text-xs text-sm text-md">Mojito Clásico</h5>
-                            <p class="text-xs text-sm text-md">Ingredientes: Onzas de almíbar, Onzas de jugo de limón,
+                        <strong >
+                            <h5 >Mojito Clásico</h5>
+                            <p>Ingredientes: Onzas  almíbar, Onzas de jugo de limón,
                                 ron blanco y soda</p>
                         </strong>
                     </div>
@@ -104,7 +104,7 @@
                     <img src="tragos/depositphotos_386039360-stock-photo-belarus-minsk-2020-refreshing-layered.jpg"
                         class="d-block w-100 img-fluid" alt="Fernet">
                     <div class="carousel-caption d-md-block">
-                        <strong class="fs-3-sm">
+                        <strong>
                             <h5>Fernet Cordobes</h5>
                             <p>Ingredientes: 30% Fernet Branca, 70% Coca-Cola con hielo</p>
                         </strong>
@@ -121,17 +121,16 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </section>
-
+    </section> -->
 
     <!-- SECCION INFORMACION -->
-    <section class="container mt-3  bg-dark text-wrap" id="Informacion">
-        <div class=" px-5 pb-5">
+    <section class="container mt-3 bg-dark text-wrap" id="Informacion">
+        <div class=" px-4 pb-5">
             <h2 class="text-center py-4 text-white"> -- ɪɴғᴏʀᴍᴀᴄɪᴏɴ -- </h2>
-            <div class="row row-cols-1  row-cols-md-2 g-2 row-cols-lg-3 row-cols-xl-3 g-5">
+            <div class="row row-cols-1 g-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-3 g-5">
                 <div class="col">
                     <div class="card">
-                        <img src="tragos/fc.webp" class="card-img-top" alt="...">
+                        <img src="img/fc.webp" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Cumpleaños</h5>
                             <p class="card-text text-wrap">Notificando fecha <strong>con anterioridad</strong> Podes
@@ -148,10 +147,10 @@
 
                 <div class="col">
                     <div class="card">
-                        <img src="tragos/General.jpeg" class="card-img-top" alt="...">
+                        <img src="img/General.jpeg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Modalidad Bar</h5>
-                            <p class="card-text">Apertura 1:30 AM y nos da ventajas como:
+                            <p class="card-text">Apertura <strong>1:30 AM</strong> y nos da ventajas como:
                             </p>
                             <ul>
                                 <li>Venta de Jarras (Mojito,Fernet,Vodka,Etc)</li>
@@ -165,14 +164,13 @@
 
                 <div class="col">
                     <div class="card">
-                        <img src="tragos/General.jpeg" class="card-img-top" alt="...">
+                        <img src="img/icon.jpeg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Modalidad Boliche </h5>
-                            <p class="card-text">Apertura 2:30 AM y nos da ventajas como:</p>
+                            <p class="card-text">Apertura <strong>2:30 AM</strong> y nos da ventajas como:</p>
                             <ul>
                                 <li>Horario de Cierre: <strong>7:00 AM</strong></li>
                                 <li>Costo de entrada: <strong> Viernes - 2000ARS<br>Sabados - 3000ARS</strong></li>
-                                <li>Espacio Seguro con Policia y Personal capacitado</li>
                             </ul>
                         </div>
                     </div>
@@ -199,12 +197,16 @@
         </div>
     </footer>
 
+    <script  defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCghLCcv1qWgIvwS5TpQ6j7Z5ckBgTrWe4">
+    </script>
     <!-- CND BOOSTRAP -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
+
     <!-- CND SCRIPT -->
-    <script src="script.js"></script>
+    <script src="script.js">
+    </script>
 </body>
 
 </html>
