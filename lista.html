@@ -18,7 +18,7 @@
     <title>Darwin Listado</title>
 </head>
 
-<body class="bg-dark" onload="renderTable()">
+<body class="bg-dark" onload="renderTableOnline()">
     <header id="inicio">
         <nav class="navbar navbar-expand-lg navbar-dark bg-black ">
             <div class="container-fluid px-5 fs-5">
@@ -56,36 +56,36 @@
     </header>
 
 
-    <!-- Sección del Ticket -->
+    <!-- Sección del Ticket y solicituds -->
     <div class="container bg-dark pb-5 text-center">
         <h3 class="py-4 text-white">Listado de Prendas y Datos</h3>
-        <form class="container text-white">
+        <form class="container text-white" method="POST" action="PHP/insertar.php">
             <div class="row mb-3 justify-content-md-center">
                 <label class="col-md-2 col-form-label text-md-end">Número:</label>
                 <div class="col-md-4">
-                    <input type="text" id="number" class="form-control" required autocomplete="off">
+                    <input type="text" id="number" name="number" class="form-control" required autocomplete="off">
                 </div>
             </div>
             <div class="row mb-3 justify-content-md-center">
                 <label class="col-md-2 col-form-label text-md-end">Nombre:</label>
                 <div class="col-md-4">
-                    <input type="text" id="name" class="form-control" required autocomplete="off">
+                    <input type="text" id="name" name="name" class="form-control" required autocomplete="off">
                 </div>
             </div>
             <div class="row mb-3 justify-content-md-center">
                 <label class="col-md-2 col-form-label text-md-end">DNI:</label>
                 <div class="col-md-4">
-                    <input type="text" id="dni" class="form-control" required autocomplete="off">
+                    <input type="text" id="dni" name="dni" class="form-control" required autocomplete="off">
                 </div>
             </div>
             <div class="row mb-3 justify-content-md-center">
                 <label class="col-md-2 col-form-label text-md-end">Teléfono:</label>
                 <div class="col-md-4">
-                    <input type="text" id="phone" class="form-control" required autocomplete="off">
+                    <input type="text" id="phone" name="phone" class="form-control" required autocomplete="off">
                 </div>
             </div>
             <div>
-                <button type="button" class="btn btn-primary" onclick="addEntry()">Agregar</button>
+                <button type="submit" class="btn btn-primary">Agregar</button> <!-- onclick="addEntry()" -->
             </div>
         </form>
     </div>
@@ -105,7 +105,6 @@
 
             </tbody>
         </table>
-    </div>
     </div>
 
     <footer class="footer bottom bg-dark text-white">

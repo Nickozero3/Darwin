@@ -1,11 +1,11 @@
 // Array para almacenar los datos
-let firstEntry = true;
-let data = [{
-    id: 3,
-    name: "Nicolas",
-    dni: "queti",
-    phone: "+54 3548 554840"
-}];
+// let firstEntry = true;
+// let data = [{
+//     id: 3,
+//     name: "Nicolas",
+//     dni: "queti",
+//     phone: "+54 3548 554840"
+// }];
 
 // --------------------------------- Logic of table --------------------------------------------------
 
@@ -23,7 +23,8 @@ function VerificarCodigo() {
     }
 }
 
-// Función para agregar una  entrada
+
+// Función para agregar una entrada 
 function addEntry() {
 
     if (firstEntry) {
@@ -67,42 +68,84 @@ function addEntry() {
 
 }
 
-// Función para eliminar una entrada
-function deleteEntry(id) {
+// Funciónes para eliminar,renderizar una entrada en local
+// function deleteEntry(id) {
 
-    // Filtrar array excluyendo el id  
-    data = data.filter(entry => entry.id !== id);
+//     // Filtrar array excluyendo el id  
+//     data = data.filter(entry => entry.id !== id);
 
-    // Renderizar tabla actualizada
-    renderTable();
+//     // Renderizar tabla actualizada
+//     renderTable();}
+
+
+// Función para renderizar la tabla completa en local
+
+// function renderTable() {
+//     data.sort((a, b) => b.id - a.id); //ordena segun id
+//     document.getElementById("tableBody").innerHTML = "";
+
+//     data.forEach(entry => {
+
+//         let row = `<tr>
+
+//         <td>${entry.id}</td>  
+//         <td>${entry.name}</td>
+//         <td>${entry.dni}</td>
+//         <td>${entry.phone}</td>
+//         <td>
+//             <button class="btn btn-danger btn-sm"
+//                     onclick="deleteEntry('${entry.id}')">
+//             Eliminar</button>
+//         </td>  
+//         </tr>`;
+
+//         document.getElementById("tableBody").innerHTML += row;
+
+//     });
+
+// }
+
+
+// Función para obtener los datos de la base de datos y renderizar la tabla
+
+function renderTableOnline() {
+    // Realizar solicitud AJAX al servidor
+    fetch('php/leer.php')
+        .then(response => response.json())
+        .then(data => {
+            // Ordenar los datos por ID
+            data.sort((a, b) => b.id - a.id);
+
+            // Limpiar el contenido actual del cuerpo de la tabla
+            document.getElementById("tableBody").innerHTML = "";
+
+            // Iterar sobre los datos y agregar filas a la tabla
+            data.forEach(entry => {
+                let row = `
+                    <tr>
+                        <td>${entry.Numero}</td>
+                        <td>${entry.Nombre}</td>
+                        <td>${entry.Dni}</td>
+                        <td>${entry.Telefono}</td>
+                        <td>
+                            <form method="POST" action="PHP/eliminar_entrada.php"> 
+                                <input type="hidden" name="numero" value="${entry.Numero}">
+                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                `;
+                document.getElementById("tableBody").innerHTML += row;
+            });
+        })
+        .catch(error => console.error('Error al obtener los datos:', error));
 }
 
-// Función para renderizar la tabla completa
-function renderTable() {
-    data.sort((a, b) => b.id - a.id); //ordena segun id
-    document.getElementById("tableBody").innerHTML = "";
-
-    data.forEach(entry => {
-
-        let row = `<tr>
-    
-        <td>${entry.id}</td>  
-        <td>${entry.name}</td>
-        <td>${entry.dni}</td>
-        <td>${entry.phone}</td>
-        <td>
-            <button class="btn btn-danger btn-sm"
-                    onclick="deleteEntry('${entry.id}')">
-            Eliminar</button>
-        </td>  
-        </tr>`;
-
-        document.getElementById("tableBody").innerHTML += row;
-
-    });
-
+function deleteEntryOnline(numero) {
+    // Redirigir al archivo PHP para eliminar la entrada
+    window.location.href = 'eliminar_entrada.php';
+    header("Location: {$_SERVER['HTTP_REFERER']}");
 }
-
 // ----------------------------------------- Logic of drinks --------------------------------------------
 
 // logica de resaltado 
