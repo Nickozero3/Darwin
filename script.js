@@ -131,7 +131,7 @@ function resaltarSeccion(idTabla) {
 // generar tabla
 function generarTablaMenu(menu, Categoria) {
 
-    let tabla = `<table id="${Categoria}" class="table table-dark table-stripped fs-5-sm text-wrap"  >`;
+    let tabla = `<table id="${Categoria}" class="table table-dark fs-5-sm text-wrap"  >`;
 
     tabla += `
         <tr>

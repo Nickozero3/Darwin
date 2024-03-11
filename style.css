@@ -1,6 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
-
 body {
     background-color: #343a40;
     height: 100vh;
@@ -102,9 +101,9 @@ footer {
 
 .scaleReset {
     box-shadow: 5px 5px 8px 6px rgba(14, 211, 56, 0.555),
-    /* sombra verde a la izq y arriba */
-    -5px -5px 8px 6px rgba(14, 211, 56, 0.555);
+        /* sombra verde a la izq y arriba */
+        -5px -5px 8px 6px rgba(14, 211, 56, 0.555);
     transform: scale(1);
-      /* restablecer la escala después de la animación */
+    /* restablecer la escala después de la animación */
     transition: transform 2s ease-in-out, width 2s ease-in-out, height 2s ease-in-out;
 }
