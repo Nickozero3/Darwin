@@ -143,7 +143,6 @@ function renderTableOnline() {
 
 function deleteEntryOnline(numero) {
     // Redirigir al archivo PHP para eliminar la entrada
-    window.location.href = 'eliminar_entrada.php';
     header("Location: {$_SERVER['HTTP_REFERER']}");
 }
 // ----------------------------------------- Logic of drinks --------------------------------------------
