@@ -1,6 +1,6 @@
 <?php
 // Incluir el archivo de conexión
-include 'conexion.php';
+include '/app/conexion.php';
 
 // Obtener los datos del formulario
 $number = $_POST['number'];

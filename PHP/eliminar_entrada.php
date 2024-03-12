@@ -1,6 +1,6 @@
 <?php
 // Incluir el archivo de conexión
-include 'conexion.php';
+include '/app/conexion.php';
 // // Verificar si se ha enviado el número a través de POST
 // if (isset($_POST['numero'])) {
 //     $numero = $_POST['numero'];

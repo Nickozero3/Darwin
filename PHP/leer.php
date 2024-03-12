@@ -1,6 +1,6 @@
 <?php
 // Incluir el archivo de conexión
-include 'conexion.php';
+include '/app/conexion.php';
 
 // Consulta SQL para obtener los datos de la tabla
 $sql = "SELECT Numero, Nombre, Dni, Telefono FROM Lista_Darwin";
