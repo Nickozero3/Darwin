@@ -8,7 +8,7 @@
 // $dataBaseName = "ba1kevs6pkfgcauzroh0";
 
 // railway
-session_start();
+
 // $host = "viaduct.proxy.rlwy.net";
 // $user = "root";
 // $password = "udRoenMYkjdCqGTpgefMexuKbstfICrJ";
@@ -18,7 +18,7 @@ session_start();
 // // Crear la conexión
 // $conn = new mysqli($host, $user, $password, $data_Base_Name, $DB_Port);
 
-
+session_start();
 $DB_HOST = $_ENV['DB_HOST'];
 $DB_USER = $_ENV['DB_USER'];
 $DB_PASSWORD = $_ENV['DB_PASSWORD'];
