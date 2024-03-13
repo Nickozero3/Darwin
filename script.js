@@ -289,11 +289,11 @@ const SinAlcohol = [{
 // VINOS
 const vinos = [{
         Producto: "Dilema <span class='text-info'>(Blanco - Rosado - Tinto)</span>",
-        Precio: 4500,
+        Precio: 6000,
     },
     {
         Producto: "Santa Julia <span class='text-info'>(Blanco - Tinto)</span>",
-        Precio: 6500,
+        Precio: 9000,
     },
 ]
 

@@ -1,6 +1,12 @@
 <?php
 // Configuración de la conexión a la base de datos
 
+// // local
+// $host = "localhost";
+// $user = "root";
+// $password = "";
+// $dataBaseName = "darwin";
+
 // // CLEVER CLOUD
 // $host = "ba1kevs6pkfgcauzroh0-mysql.services.clever-cloud.com";
 // $user = "upqvy2lkrkj8hapn";
