@@ -1,15 +1,69 @@
 {
+    "name": "your-project-name",
+    "description": "Your project description",
+    "type": "project",
+    "license": "proprietary",
     "require": {
-        "php": ">=8.0"
+        "php": "^8.2",
+        "composer/semver": "3.3.2",
+        "symfony/console": "6.2.7",
+        "symfony/dotenv": "6.2.7",
+        "symfony/flex": "2.2.4",
+        "symfony/framework-bundle": "6.2.7",
+        "symfony/runtime": "6.2.7",
+        "symfony/yaml": "6.2.7"
     },
     "require-dev": {
-        "glpi-project/tools": "^0.5"
+        "phpunit/phpunit": "9.5.28",
+        "symfony/browser-kit": "6.2.7",
+        "symfony/css-selector": "6.2.7",
+        "symfony/maker-bundle": "1.48.0"
     },
     "config": {
-        "optimize-autoloader": true,
-        "platform": {
-            "php": "8.0.0"
+        "allow-plugins": {
+            "symfony/flex": true,
+            "symfony/runtime": true
         },
         "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php74": "*",
+        "symfony/polyfill-php80": "*",
+        "symfony/polyfill-php81": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "6.2.*"
+        }
     }
 }
